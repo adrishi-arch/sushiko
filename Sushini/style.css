@@ -1,0 +1,608 @@
+:root {
+  --color-ink: #2e2d2f;
+  --color-muted: #777177;
+  --color-paper: #fffafb;
+  --color-white: #ffffff;
+  --color-pink: #f8cbd6;
+  --color-pink-soft: #fff1f4;
+  --color-red: #c83632;
+  --color-red-deep: #9f2326;
+  --color-gray: #efedf0;
+  --shadow-soft: 0 24px 60px rgba(126, 68, 79, 0.14);
+  --shadow-button: 0 16px 30px rgba(200, 54, 50, 0.24);
+  --radius-card: 8px;
+  --max-width: 1040px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: "Avenir Next", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(248, 203, 214, 0.55), transparent 36rem),
+    linear-gradient(180deg, #fffafb 0%, #ffffff 54%, #fff4f6 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+/* Capa decorativa independiente: no bloquea clics ni lectura. */
+
+.sakura-fall {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sakura-petal {
+  position: absolute;
+  top: -12vh;
+  left: var(--petal-left);
+  width: var(--petal-size);
+  aspect-ratio: 1;
+  background: url("img/sakura.svg") center / contain no-repeat;
+  opacity: var(--petal-opacity);
+  animation: sakuraFall var(--petal-duration) linear infinite;
+  animation-delay: var(--petal-delay);
+  transform: translate3d(0, 0, 0) rotate(var(--petal-rotate));
+  will-change: transform;
+}
+
+.page-shell,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.page-shell {
+  width: min(100% - 32px, var(--max-width));
+  margin: 0 auto;
+  padding: 44px 0 28px;
+}
+
+.hero {
+  display: grid;
+  min-height: 52vh;
+  place-items: center;
+  text-align: center;
+}
+
+.hero__brand {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+}
+
+.hero__logo {
+  width: clamp(86px, 22vw, 120px);
+  height: auto;
+  filter: drop-shadow(0 16px 20px rgba(126, 68, 79, 0.12));
+  animation: logoFloat 5.6s ease-in-out infinite;
+}
+
+.hero__eyebrow,
+.section-kicker {
+  margin: 0;
+  color: var(--color-red);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(3.2rem, 16vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.88;
+}
+
+.hero__tagline {
+  max-width: 620px;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: clamp(1.04rem, 4vw, 1.42rem);
+  line-height: 1.65;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.feature-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(200, 54, 50, 0.08);
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow-soft);
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.feature-card:hover {
+  border-color: rgba(200, 54, 50, 0.18);
+  box-shadow: 0 28px 64px rgba(126, 68, 79, 0.17);
+  transform: translateY(-3px);
+}
+
+.feature-card__body {
+  position: relative;
+  z-index: 1;
+  padding: clamp(24px, 5vw, 36px);
+}
+
+.feature-card h2 {
+  margin: 8px 0 12px;
+  color: var(--color-ink);
+  font-size: clamp(1.55rem, 6vw, 2.25rem);
+  line-height: 1.08;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.fortune-preview {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.9fr) minmax(0, 1.1fr);
+  min-height: 330px;
+}
+
+/* Fondo suave de la tarjeta de fortuna. */
+.fortune-preview::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(248, 203, 214, 0.28), transparent 48%),
+    radial-gradient(circle at 28% 26%, rgba(200, 54, 50, 0.09), transparent 14rem);
+  content: "";
+}
+
+.fortune-preview__visual {
+  position: relative;
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  padding: 28px;
+}
+
+/* Botón principal de la experiencia interactiva. */
+.fortune-cookie {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(82%, 230px);
+  min-height: 180px;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 220ms ease;
+}
+
+.fortune-cookie:not(.is-open):hover {
+  transform: translateY(-4px) rotate(-1deg);
+}
+
+.fortune-cookie:not(.is-open):active {
+  transform: translateY(0) scale(0.98);
+}
+
+.fortune-cookie:focus-visible {
+  outline: 3px solid rgba(200, 54, 50, 0.42);
+  outline-offset: 8px;
+}
+
+.fortune-cookie__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.fortune-cookie__image {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 16px 18px rgba(126, 68, 79, 0.14));
+  transform-origin: 50% 70%;
+  transition: filter 220ms ease, transform 220ms ease;
+}
+
+.fortune-cookie:not(.is-open):hover .fortune-cookie__image--closed {
+  filter: drop-shadow(0 22px 22px rgba(126, 68, 79, 0.18));
+  transform: rotate(-1deg) scale(1.03);
+}
+
+.fortune-cookie__image--open {
+  opacity: 0;
+  transform: translateY(8px) scale(0.88);
+}
+
+.fortune-cookie.is-open .fortune-cookie__image--closed {
+  animation: cookieBreak 720ms ease both;
+}
+
+.fortune-cookie.is-open .fortune-cookie__image--open {
+  animation: cookieReveal 760ms 260ms ease both;
+}
+
+.fortune-card__body {
+  display: grid;
+  align-content: center;
+}
+
+.fortune-card__intro {
+  max-width: 34rem;
+}
+
+.fortune-scroll {
+  position: relative;
+  margin-top: 18px;
+  border: 1px solid rgba(200, 54, 50, 0.14);
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(90deg, rgba(248, 203, 214, 0.18), transparent 14%),
+    linear-gradient(180deg, #ffffff 0%, #fff9f2 100%);
+  box-shadow: 0 16px 34px rgba(126, 68, 79, 0.1);
+  padding: 18px;
+}
+
+.fortune-scroll::before,
+.fortune-scroll::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fffdf8, #f8cbd6);
+  content: "";
+  opacity: 0.78;
+}
+
+.fortune-scroll::before {
+  left: -9px;
+}
+
+.fortune-scroll::after {
+  right: -9px;
+}
+
+.fortune-scroll.is-visible {
+  animation: scrollReveal 620ms ease both;
+}
+
+.fortune-scroll__label {
+  color: var(--color-red) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.fortune-scroll__text {
+  margin-top: 8px !important;
+  color: var(--color-ink) !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 4vw, 1.28rem) !important;
+  line-height: 1.6 !important;
+}
+
+.lucky-numbers {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.lucky-numbers__title {
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.lucky-numbers__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lucky-number {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--color-pink-soft);
+  color: var(--color-red-deep);
+  font-size: 0.88rem;
+  font-weight: 800;
+  transform: translateY(4px) scale(0.92);
+  opacity: 0;
+  animation: numberPop 420ms ease forwards;
+}
+
+.sakura-dot {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px 999px 999px 0;
+  background: var(--color-pink);
+  opacity: 0.8;
+  transform: rotate(-28deg);
+}
+
+.sakura-dot--one {
+  top: 54px;
+  left: 42px;
+}
+
+.sakura-dot--two {
+  right: 36px;
+  bottom: 58px;
+  width: 22px;
+  height: 22px;
+  background: #ffdfe6;
+}
+
+.schedule-card {
+  display: grid;
+  align-content: center;
+  min-height: 330px;
+  background:
+    linear-gradient(180deg, rgba(255, 241, 244, 0.92), rgba(255, 255, 255, 0.94)),
+    var(--color-white);
+}
+
+.schedule-card__icon {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  color: rgba(200, 54, 50, 0.1);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(5rem, 18vw, 8rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.schedule-card__time {
+  color: var(--color-red-deep) !important;
+  font-size: clamp(1.1rem, 4vw, 1.42rem) !important;
+  font-weight: 800;
+}
+
+.order-section {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 16px;
+}
+
+.whatsapp-button {
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--color-red);
+  box-shadow: var(--shadow-button);
+  color: var(--color-white);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 0 28px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.whatsapp-button:hover,
+.whatsapp-button:focus-visible {
+  background: var(--color-red-deep);
+  box-shadow: 0 20px 36px rgba(200, 54, 50, 0.28);
+  transform: translateY(-2px);
+}
+
+.whatsapp-button:active {
+  transform: translateY(0);
+}
+
+.site-footer {
+  width: min(100% - 32px, var(--max-width));
+  margin: 0 auto;
+  border-top: 1px solid var(--color-gray);
+  color: var(--color-muted);
+  padding: 28px 0 36px;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.fade-in {
+  animation: fadeIn 780ms ease both;
+}
+
+.fade-in--delay-1 {
+  animation-delay: 120ms;
+}
+
+.fade-in--delay-2 {
+  animation-delay: 220ms;
+}
+
+.fade-in--delay-3 {
+  animation-delay: 320ms;
+}
+
+/* Animaciones ligeras basadas en transform para cuidar rendimiento. */
+@keyframes sakuraFall {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(var(--petal-rotate));
+  }
+
+  50% {
+    transform: translate3d(calc(var(--petal-drift) * 0.5), 52vh, 0) rotate(calc(var(--petal-rotate) + 120deg));
+  }
+
+  100% {
+    transform: translate3d(var(--petal-drift), 112vh, 0) rotate(calc(var(--petal-rotate) + 260deg));
+  }
+}
+
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes numberPop {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cookieBreak {
+  0% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  42% {
+    opacity: 1;
+    transform: rotate(-2deg) scale(1.04);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(10px) rotate(5deg) scale(0.82);
+  }
+}
+
+@keyframes cookieReveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes scrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .page-shell {
+    width: min(100% - 24px, var(--max-width));
+    padding-top: 28px;
+  }
+
+  .hero {
+    min-height: 48vh;
+    padding: 26px 0 22px;
+  }
+
+  .content-grid,
+  .fortune-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .fortune-preview {
+    min-height: auto;
+  }
+
+  .fortune-preview__visual {
+    min-height: 218px;
+    padding-bottom: 0;
+  }
+
+  .fortune-cookie {
+    min-height: 160px;
+  }
+
+  .schedule-card {
+    min-height: 260px;
+  }
+
+  .whatsapp-button {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  .sakura-fall {
+    display: none;
+  }
+}

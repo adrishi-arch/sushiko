@@ -1,0 +1,14 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Logo temporal</title>
+  <desc id="desc">Emblema circular temporal con un rollo de sushi minimalista y flor de cerezo.</desc>
+  <circle cx="90" cy="82" r="72" fill="#FFF1F4"/>
+  <circle cx="90" cy="82" r="62" fill="#FFFFFF" stroke="#F8CBD6" stroke-width="6"/>
+  <circle cx="90" cy="82" r="38" fill="#2E2D2F"/>
+  <circle cx="90" cy="82" r="26" fill="#FFFFFF"/>
+  <circle cx="82" cy="76" r="7" fill="#C83632"/>
+  <circle cx="101" cy="80" r="8" fill="#F8CBD6"/>
+  <circle cx="90" cy="96" r="6" fill="#9BC6A5"/>
+  <path d="M122 45C128 39 137 43 136 52C145 53 147 63 139 68C142 77 133 83 126 77C119 82 110 76 113 67C105 62 108 52 117 52C116 49 118 47 122 45Z" fill="#F8CBD6"/>
+  <circle cx="126" cy="61" r="5" fill="#C83632"/>
+  <path d="M54 118C64 128 77 134 92 134C109 134 123 127 133 115" stroke="#C83632" stroke-width="5" stroke-linecap="round"/>
+</svg>

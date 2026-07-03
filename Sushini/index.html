@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fff1f4" />
+    <meta
+      name="description"
+      content="SUSHINI, sushi artesanal de fin de semana con una fortuna interactiva y pedidos por WhatsApp."
+    />
+    <meta property="og:title" content="SUSHINI | Sushi artesanal" />
+    <meta
+      property="og:description"
+      content="Abre tu galleta de la fortuna, descubre tus números de la suerte y haz tu pedido de sushi por WhatsApp."
+    />
+    <meta property="og:type" content="website" />
+    <title>SUSHINI | Sushi artesanal</title>
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+    <link rel="preload" href="img/logo.svg" as="image" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="fortunes.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="sakura-fall" aria-hidden="true"></div>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__brand fade-in">
+          <img
+            class="hero__logo"
+            src="img/logo.svg"
+            alt="Logo temporal de SUSHINI"
+            width="104"
+            height="104"
+            decoding="async"
+          />
+          <p class="hero__eyebrow">Sushi artesanal de fin de semana</p>
+          <h1 id="hero-title">SUSHINI</h1>
+          <p class="hero__tagline">
+            La felicidad también viene enrollada en arroz.
+          </p>
+        </div>
+      </section>
+
+      <section class="content-grid" aria-label="Información de SUSHINI">
+        <article class="feature-card fortune-preview fade-in fade-in--delay-1">
+          <div class="fortune-preview__visual">
+            <span class="sakura-dot sakura-dot--one" aria-hidden="true"></span>
+            <button
+              class="fortune-cookie"
+              type="button"
+              aria-controls="fortune-scroll"
+              aria-expanded="false"
+            >
+              <span class="fortune-cookie__label">Abrir fortuna</span>
+              <img
+                class="fortune-cookie__image fortune-cookie__image--closed"
+                src="img/cookie.svg"
+                alt="Galleta de la fortuna cerrada"
+                width="220"
+                height="161"
+                decoding="async"
+              />
+              <img
+                class="fortune-cookie__image fortune-cookie__image--open"
+                src="img/cookie-open.svg"
+                alt="Galleta de la fortuna abierta"
+                width="220"
+                height="161"
+                decoding="async"
+              />
+            </button>
+            <span class="sakura-dot sakura-dot--two" aria-hidden="true"></span>
+          </div>
+          <div class="feature-card__body fortune-card__body">
+            <p class="section-kicker">Tu fortuna SUSHINI</p>
+            <h2>Abre tu galleta</h2>
+            <p class="fortune-card__intro">
+              Toca la galleta para descubrir el mensaje que acompañará tu próximo bocado.
+            </p>
+            <div class="fortune-scroll" id="fortune-scroll" aria-live="polite" hidden>
+              <p class="fortune-scroll__label">Fortuna del día</p>
+              <p class="fortune-scroll__text" id="fortune-text"></p>
+              <div class="lucky-numbers" aria-label="Números de la suerte">
+                <span class="lucky-numbers__title">Números de la suerte</span>
+                <div class="lucky-numbers__list" id="lucky-numbers"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="feature-card schedule-card fade-in fade-in--delay-2">
+          <div class="schedule-card__icon" aria-hidden="true">週</div>
+          <div class="feature-card__body">
+            <p class="section-kicker">Horario</p>
+            <h2>Sábados y domingos</h2>
+            <p class="schedule-card__time">1:00 p.m. a 3:00 p.m.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="order-section fade-in fade-in--delay-3" aria-label="Pedido">
+        <a
+          class="whatsapp-button"
+          href="https://wa.me/527223504805?text=Hola%20%F0%9F%98%8A,%20quiero%20hacer%20un%20pedido%20de%20sushi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Hacer pedido por WhatsApp
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Gracias por apoyar este pequeño emprendimiento.</p>
+      <p>Esperamos volver a cocinar para ti.</p>
+    </footer>
+  </body>
+</html>
