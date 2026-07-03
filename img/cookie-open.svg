@@ -1,0 +1,13 @@
+<svg width="260" height="190" viewBox="0 0 260 190" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Galleta de la fortuna abierta</title>
+  <desc id="desc">Ilustración de una galleta de la fortuna abierta con un pergamino al centro.</desc>
+  <ellipse cx="132" cy="154" rx="92" ry="16" fill="#E9D8CF"/>
+  <path d="M42 126C54 82 90 59 123 73C111 91 105 111 112 135C84 140 58 135 42 126Z" fill="#F8D9BD"/>
+  <path d="M218 126C206 82 170 59 137 73C149 91 155 111 148 135C176 140 202 135 218 126Z" fill="#EFB98E"/>
+  <path d="M61 112C77 124 94 130 112 132" stroke="#D89566" stroke-width="6" stroke-linecap="round"/>
+  <path d="M199 112C183 124 166 130 148 132" stroke="#C98251" stroke-width="6" stroke-linecap="round"/>
+  <path d="M83 75C104 70 127 74 146 83L164 92C168 94 168 101 163 102L95 119C88 121 81 116 82 109L84 82C84 79 81 76 83 75Z" fill="#FFF9F2" stroke="#F8CBD6" stroke-width="4"/>
+  <path d="M103 94H146" stroke="#C83632" stroke-width="4" stroke-linecap="round"/>
+  <path d="M103 106H132" stroke="#C83632" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+  <path d="M127 70L133 84L125 97L132 116" stroke="#C98251" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+</svg>
